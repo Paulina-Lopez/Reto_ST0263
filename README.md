@@ -18,7 +18,7 @@ Este proyecto es una implementación de una red peer-to-peer (P2P) para comparti
 - Implementación del servidor y cliente gRPC para la carga y descarga de archivos.
 
 ## 2. Diseño e información general
-El proyecto sigue una arquitectura P2P donde los usuarios pueden compartir archivos entre ellos. La información del usuario y los archivos compartidos se gestiona a través de un servidor central implementado en Flask. La transferencia de archivos se realiza mediante gRPC.
+El proyecto sigue una arquitectura P2P donde los usuarios pueden compartir archivos entre ellos. La información del usuario y los archivos compartidos se gestionan a través de un servidor central implementado en Flask. La transferencia de archivos se realiza mediante gRPC.
 
 <img src="https://i.postimg.cc/W4Hf5MZ0/telematica-drawio.png">
 
@@ -29,16 +29,16 @@ El proyecto sigue una arquitectura P2P donde los usuarios pueden compartir archi
 
 ### Cómo compilar y ejecutar
 
-Para generar los archivos gRP, deberá ejecutar:
+Para generar los archivos gRP, deberá ejecutar:<br>
 py -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. records.proto
 
-Para ejecutar el servidor principal (server.py), se debe asegurar que MongoDB esté corriendo y luego en una terminal ejecutar:
+Para ejecutar el servidor principal (server.py), se debe asegurar que MongoDB esté corriendo y luego en una terminal ejecutar:<br>
 py server.py
 
-Para el servidor gRPC (p_server.py) deberá ejecutar lo siguiente en otra terminal independiente:
+Para el servidor gRPC (p_server.py) deberá ejecutar lo siguiente en otra terminal independiente:<br>
 py p_server.py
 
-Finalmente para el cliente (p_client.py), recuerde utilizar otra terminal y ejecute:
+Finalmente para el cliente (p_client.py), recuerde utilizar otra terminal y ejecute:<br>
 py p_client.py
 
 ### Detalles de desarrollo y técnicos
@@ -49,25 +49,25 @@ py p_client.py
 - Proceso de registro de un peer nuevo a la base de datos
 <img src="https://i.postimg.cc/W3L7HS9L/image.png">
 
-- Proceso de login de un peer existente en la base de datos
+- Proceso de login de un peer existente en la base de datos<br>
 Caso de éxito:
 <img src="https://i.postimg.cc/FHwqhyPG/image.png">
 Caso fallido:
 <img src="https://i.postimg.cc/CMJQRTPR/image.png">
 
-- Proceso de registro de los archivos de un peer en el servidor
+- Proceso de registro de los archivos de un peer en el servidor<br>
 Caso de éxito:
 <img src="https://i.postimg.cc/76ZSccgR/image.png">
 Caso fallido:
 <img src="https://i.postimg.cc/15qwLDqy/image.png">
 
-- Proceso de buscar los archivos en los peers almacenados en el servidor
+- Proceso de buscar los archivos en los peers almacenados en el servidor<br>
 Caso de éxito:
 <img src="https://i.postimg.cc/pTS5SdV9/image.png">
 Caso fallido:
 <img src="https://i.postimg.cc/gcfNXzyk/image.png">
 
-- Proceso de logout
+- Proceso de logout<br>
 Caso de éxito:
 <img src="https://i.postimg.cc/wv1QMZ7m/image.png">
 Caso fallido:
@@ -88,29 +88,28 @@ Caso fallido:
 - Los usuarios pueden registrarse, iniciar y cerrar sesión mediante el servidor Flask.
 - Los archivos se pueden cargar y descargar usando el cliente y servidor gRPC.
 
-1. Login (/clogin):
-Método: POST
-Datos requeridos: username, password y url únicamente para el registro.
+1. Login (/clogin):<br>
+Método: POST<br>
+Datos requeridos: username, password y url únicamente para el registro.<br>
 Función: Autentica al usuario. Envía una petición POST con los datos de login a un servicio específico.
 
-2. Logout (/clogout):
-Método: POST
-Datos requeridos: username.
+2. Logout (/clogout):<br>
+Método: POST<br>
+Datos requeridos: username.<br>
 Función: Cierra la sesión del usuario. Envía una petición POST con el nombre de usuario a un servicio de logout.
 
-3. Indexar (/cindex):
-Método: POST
-Datos requeridos: username, files.
+3. Indexar (/cindex):<br>
+Método: POST<br>
+Datos requeridos: username, files.<br>
 Función: Procesa una lista de archivos para indexarlos. Cada archivo se sube a través de un cliente gRPC.
 
-5. Buscar (/csearch):
-Método: POST
-Datos requeridos: files.
+5. Buscar (/csearch):<br>
+Método: POST<br>
+Datos requeridos: files.<br>
 Función: Busca archivos específicos. Por cada archivo, realiza una operación de descarga usando gRPC.
-Funciones gRPC:
 
-6. Métodos gRPC:
-grpc_client_upload(filename): Sube archivos utilizando gRPC.
+6. Métodos gRPC: <br>
+grpc_client_upload(filename): Sube archivos utilizando gRPC.<br>
 grpc_client_download(filename): Descarga archivos utilizando gRPC.
 
 ## Referencias
