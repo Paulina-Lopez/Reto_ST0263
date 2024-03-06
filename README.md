@@ -10,7 +10,7 @@
 
 # Reto N° 1 y 2
 ## 1. Descripción de la actividad
-<Este proyecto es una implementación de una red peer-to-peer (P2P) para compartir archivos. Utiliza Flask para el servidor principal y gRPC para la comunicación entre peers.>
+Este proyecto es una implementación de una red peer-to-peer (P2P) para compartir archivos. Utiliza Flask para el servidor principal y gRPC para la comunicación entre peers.
 
 ### 1.1. Requerimientos cumplidos
 - Implementación del servidor principal usando Flask.
@@ -18,7 +18,7 @@
 - Implementación del servidor y cliente gRPC para la carga y descarga de archivos.
 
 ## 2. Diseño e información general
-<El proyecto sigue una arquitectura P2P donde los usuarios pueden compartir archivos entre ellos. La información del usuario y los archivos compartidos se gestiona a través de un servidor central implementado en Flask. La transferencia de archivos se realiza mediante gRPC.>
+El proyecto sigue una arquitectura P2P donde los usuarios pueden compartir archivos entre ellos. La información del usuario y los archivos compartidos se gestiona a través de un servidor central implementado en Flask. La transferencia de archivos se realiza mediante gRPC.
 
 ## 3. Ambiente de desarrollo
 - Lenguaje de Programación: Python
@@ -26,21 +26,25 @@
 - MongoDB para la gestión de datos
 
 ### Cómo compilar y ejecutar
-<Para ejecutar el servidor principal (server.py), se debe asegurar que MongoDB esté corriendo y luego en una terminal ejecutar:
-py server.py>
 
-<Para el servidor gRPC (p_server.py) deberá ejecutar lo siguiente en otra terminal independiente:
-py p_server.py>
+Para generar los archivos gRP, deberá ejecutar:
+py -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. records.proto
 
-<Finalmente para el cliente (p_client.py), recuerde utilizar otra terminal y ejecute:
-py p_client.py>
+Para ejecutar el servidor principal (server.py), se debe asegurar que MongoDB esté corriendo y luego en una terminal ejecutar:
+py server.py
+
+Para el servidor gRPC (p_server.py) deberá ejecutar lo siguiente en otra terminal independiente:
+py p_server.py
+
+Finalmente para el cliente (p_client.py), recuerde utilizar otra terminal y ejecute:
+py p_client.py
 
 ### Detalles de Desarrollo y Técnicos
 - MongoDB se utiliza para almacenar la información de los usuarios y los archivos compartidos.
 - Las direcciones IP y los puertos están configurados para ejecutarse localmente por defecto.
 
 ### Resultados o pantallazos
-<Incluir imágenes o capturas de pantalla si es necesario.>
+![postman](URL "https://i.postimg.cc/W3L7HS9L/image.png")
 
 ## 4. Ambiente de ejecución
 
@@ -53,7 +57,6 @@ py p_client.py>
 - Los archivos se pueden cargar y descargar usando el cliente y servidor gRPC.
 
 ## 5. Información Adicional
-<Cualquier otra información que consideres relevante para esta actividad.>
 
 ## Referencias
 - https://grpc.io/docs/languages/python/basics/
