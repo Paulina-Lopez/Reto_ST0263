@@ -12,7 +12,7 @@ class FileServiceServicer(records_pb2_grpc.FileServiceServicer):
 
     def Download(self, request, context):
         filename = request.filename
-        message = "Sample file content of " + filename
+        message = "File " + filename + " download successful" 
         print(message)
         file = records_pb2.File(content=message)
         return records_pb2.DownloadResponse(file=file)
