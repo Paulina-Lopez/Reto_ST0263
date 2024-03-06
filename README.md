@@ -44,7 +44,7 @@ py p_client.py
 - Las direcciones IP y los puertos están configurados para ejecutarse localmente por defecto.
 
 ### Resultados o pantallazos
-![postman](URL "https://i.postimg.cc/W3L7HS9L/image.png")
+<img src="https://i.postimg.cc/W3L7HS9L/image.png">
 
 ## 4. Ambiente de ejecución
 
